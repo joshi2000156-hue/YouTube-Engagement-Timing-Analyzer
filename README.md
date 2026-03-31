@@ -113,7 +113,7 @@ Download the project from GitHub:
 If Git is installed, run:
 
 ```
-git clone https://github.com/YOUR_USERNAME/youtube-upload-strategy-analyzer.git
+git clone https://github.com/joshi2000156-hue/YouTube-Engagement-Timing-Analyzer.git
 ```
 
 ---
@@ -125,7 +125,7 @@ Open **Command Prompt** and navigate to the project folder.
 Example:
 
 ```
-cd Downloads/youtube-upload-strategy-analyzer
+cd Downloads/Youtube-Engagement-Timing-Analyser
 ```
 
 ---
