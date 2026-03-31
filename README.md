@@ -2,22 +2,39 @@
 
 ## Overview
 
-This project analyzes YouTube video data to recommend the best time to upload videos for maximum engagement. It collects real data using the YouTube Data API and analyzes patterns in upload time and views.
+YouTube creators often struggle to decide the best time to upload their videos. Posting at the wrong time can reduce visibility and engagement.
+
+This project is a **data-driven analytics tool** that analyzes real YouTube video data and recommends the **best day and hour to upload videos** based on engagement patterns.
+
+The system collects video metadata using the YouTube Data API, processes upload timestamps, calculates engagement metrics, and identifies the most effective upload time for a given video topic.
+
+---
 
 ## Problem
 
-Content creators often struggle to determine the best time to upload videos. Uploading at the wrong time may reduce visibility and engagement.
+Many content creators rely on guesswork or generic advice when deciding when to upload videos. However, optimal upload times vary depending on the niche and audience activity.
+
+Without analyzing real platform data, creators may miss opportunities to reach a larger audience.
+
+---
 
 ## Solution
 
-This project analyzes videos related to a given topic and determines which upload hours and days historically receive the highest engagement.
+This tool analyzes recently uploaded videos related to a user-specified topic and calculates an **engagement score** based on how quickly videos gain views.
+
+Using this analysis, the system recommends the **best day and time** to upload videos for that niche.
+
+---
 
 ## Features
 
-* Collects video data using YouTube API
-* Converts timestamps from UTC to Indian Standard Time
-* Calculates engagement score based on view growth rate
-* Recommends best upload day and hour
+* Collects real video data using the YouTube Data API
+* Converts upload timestamps from UTC to Indian Standard Time (IST)
+* Calculates an engagement score using view growth rate
+* Analyzes upload patterns by hour and day
+* Recommends optimal upload time for better reach
+
+---
 
 ## Technologies Used
 
@@ -26,79 +43,221 @@ This project analyzes videos related to a given topic and determines which uploa
 * requests
 * YouTube Data API v3
 
-## Installation
+---
 
-Clone the repository:
+## Project Structure
+
+```text
+youtube-upload-strategy-analyzer
+│
+├── main.py        # Runs the program
+├── api.py         # Fetches data from YouTube API
+├── data.py        # Processes video data
+├── analyser.py    # Performs engagement analysis
+├── config.py      # Stores API key and settings
+│
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# How to Run the Project (Step-by-Step Guide)
+
+These simple written instructions even for **people with no coding experience**.
+
+---
+
+## Step 1 — Install Python
+
+1. Go to the official Python website:
+   https://www.python.org/downloads/
+
+2. Download the latest version of Python.
+
+3. During installation **make sure to check**:
+
+```
+Add Python to PATH
+```
+
+4. Click **Install**.
+
+After installation, open **Command Prompt** and check:
+
+```
+python --version
+```
+
+If Python is installed correctly, you will see the version number.
+
+---
+
+## Step 2 — Download the Project
+
+You have two options.
+
+### Option A (Recommended)
+
+Download the project from GitHub:
+
+1. Open the project repository on GitHub.
+2. Click **Code**
+3. Click **Download ZIP**
+4. Extract the folder on your computer.
+
+---
+
+### Option B (Using Git)
+
+If Git is installed, run:
 
 ```
 git clone https://github.com/YOUR_USERNAME/youtube-upload-strategy-analyzer.git
 ```
 
-Install dependencies:
+---
+
+## Step 3 — Open the Project Folder
+
+Open **Command Prompt** and navigate to the project folder.
+
+Example:
+
+```
+cd Downloads/youtube-upload-strategy-analyzer
+```
+
+---
+
+## Step 4 — Install Required Libraries
+
+The project uses two Python libraries.
+
+Run this command:
 
 ```
 pip install -r requirements.txt
 ```
 
-## Setup API Key
+This installs:
 
-Create an API key using Google Cloud Console and enable the YouTube Data API v3.
+* pandas
+* requests
 
-Then open `config.py` and replace:
+---
+
+## Step 5 — Create a YouTube API Key
+
+This project requires a YouTube API key.
+
+1. Go to
+   https://console.cloud.google.com/
+
+2. Create a **new project**
+
+3. Enable
+   **YouTube Data API v3**
+
+4. Go to **Credentials**
+
+5. Click **Create API Key**
+
+Copy the generated API key.
+
+---
+
+## Step 6 — Add the API Key to the Project
+
+Open the file:
+
+```
+config.py
+```
+
+Replace this line:
 
 ```
 API_KEY = "YOUR_API_KEY_HERE"
 ```
 
-## Running the Project
+with your real API key.
 
-Run:
+Example:
+
+```
+API_KEY = "AIzaSyXXXXXXXXXXXX"
+```
+
+Save the file.
+
+---
+
+## Step 7 — Run the Program
+
+Run the following command:
 
 ```
 python main.py
 ```
 
-Example input:
+The program will ask for a topic.
+
+Example:
 
 ```
 Enter video topic or niche: gaming edits
 ```
 
-Example output:
+---
+
+## Example Output
 
 ```
+YouTube Upload Strategy Analyzer
+--------------------------------
+
 Recommended Upload Strategy
 Best Upload Hour: 16:00
 Best Upload Day: Thursday
 ```
 
-## Methodology
+This means the analyzed data suggests that **4 PM on Thursday** may be the best time to upload videos in that niche.
 
-1. Fetch video data from the YouTube Data API.
-2. Extract upload timestamp and view count.
-3. Convert timestamps to Indian Standard Time.
-4. Calculate engagement score:
+---
+
+# Methodology
+
+1. The system fetches videos using the YouTube Data API.
+2. Upload timestamps are converted to Indian Standard Time.
+3. Video engagement is calculated using:
 
 ```
 engagement_score = views / days_since_upload
 ```
 
-5. Group videos by upload hour and day using pandas.
-6. Recommend the time slot with highest engagement.
+4. Videos are grouped by upload hour and day using pandas.
+5. The system recommends the time slot with the highest engagement score.
 
-## Limitations
+---
+
+# Limitations
 
 * Only a limited number of videos are analyzed
-* Channel popularity is not normalized
+* Channel subscriber counts are not considered
 * Results depend on YouTube search results
 
-## Future Improvements
+---
 
-* Use machine learning for prediction
+# Future Improvements
+
+* Use machine learning for better prediction
 * Analyze likes and comments
-* Normalize by subscriber count
-* Create visualization dashboard
+* Normalize engagement using subscriber counts
+* Add visual data dashboards
 
-## Author
+---
+
+# Author
 
 Pranav Joshi
