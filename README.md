@@ -125,7 +125,7 @@ Open **Command Prompt** and navigate to the project folder.
 Example:
 
 ```
-cd Downloads/Youtube-Engagement-Timing-Analyser
+cd Downloads/Youtube-Engagement-Timing-Analyzer
 ```
 
 ---
